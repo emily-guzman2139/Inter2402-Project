@@ -1,0 +1,119 @@
+<!-- views/enrollments/enrollStudent.ejs -->
+
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll Student</title>
+    <style>
+        /* Add your CSS styles here */
+        /* Example CSS styles */
+        /* Style for form container */
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Style for form input fields */
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Style for form buttons */
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+
+<body> 
+    <div class="form-container">
+        <h2>Enroll Student</h2>
+        <form action="/enrollments/enrollStudent" method="POST">
+            <label for="student_id">Select Student:</label>
+            <select name="student_id" id="student_id">
+                Populate with student options 
+                <% students.forEach(student => { %>
+                <option value="<%= student.id %>"><%= student.name %></option>
+                <% }); %>
+            </select>
+            <label for="course_id">Select Course:</label>
+            <select name="course_id" id="course_id">
+                Populate with course options 
+                <% courses.forEach(course => { %>
+                <option value="<%= course.id %>"><%= course.name %></option>
+                <% }); %>
+            </select>
+            <label for="faculty_id">Select Faculty:</label>
+            <select name="faculty_id" id="faculty_id">
+                 Populate with faculty options 
+                <% faculty.forEach(faculty => { %>
+                <option value="<%= faculty.id %>"><%= faculty.name %></option>
+                <% }); %>
+            </select>
+            <button type="submit" class="button">Enroll</button>
+        </form>
+       
+    </div>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Management System - Enroll Student</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Enroll Student</h1>
+        <form method="post" action="/enrollments/enrollStudent">
+            <div class="form-group mt-3">
+                <label for="student">Select Student</label>
+                <select class="form-control" id="student" name="student_id" required>
+                    <% students.forEach(function(student) { %>
+                        <option value="<%= student.student_id %>"><%= student.first_name %> <%= student.last_name %></option>
+                        <% }); %>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <label for="course">Select Course</label>
+                <select class="form-control" id="course" name="course_id" required>
+                    <% courses.forEach(function(course) { %>
+                        <option value="<%= course.course_id %>"><%= course.course_name %></option>
+                        <% }); %>
+                </select>
+            </div>
+          <div class="form-group mt-3">
+                <label for="faculty">Select Faculty</label>
+                <select class="form-control" id="faculty" name="faculty_id" required>
+                    <% faculty.forEach(function(faculty) { %>
+                        <option value="<%= faculty.faculty_id %>"><%= faculty.faculty_name %></option>
+                        <% }); %>
+                </select> 
+            <button type="submit" class="btn btn-primary mt-3">Enroll Student</button>
+        </form>
+</body>
+</html>
